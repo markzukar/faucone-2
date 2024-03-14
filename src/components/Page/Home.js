@@ -1,6 +1,5 @@
-import React, { useState } from 'react'
-import NavDropdown from 'react-bootstrap/NavDropdown';
-import { Drawer } from 'antd';
+import React from 'react'
+
 import award from '../../img/6award.PNG'
 import women from '../../img/women.PNG'
 import gobal from '../../img/gobal.PNG'
@@ -12,139 +11,21 @@ import party1 from '../../img/party1.jpg'
 import party2 from '../../img/party2.jpg'
 import party3 from '../../img/party3.jpg'
 import location from '../../img/location.PNG'
-import india from '../../img/india.PNG'
-import logo from '../../img/logo.PNG'
 
-import { RiSearchLine } from "react-icons/ri";
-import { MdOutlineSegment } from "react-icons/md";
+
+
 import { FaPeopleCarryBox } from "react-icons/fa6";
 import { FaRegClock } from "react-icons/fa";
 import { RiSendPlaneLine } from "react-icons/ri";
 import { PiUserCircleThin } from "react-icons/pi";
 import { AiOutlineGlobal } from "react-icons/ai";
 import { GrLinkNext } from "react-icons/gr";
-import { TfiYoutube } from "react-icons/tfi";
-import { BsTwitterX } from "react-icons/bs";
-import { GrFacebookOption } from "react-icons/gr";
-import { TiSocialInstagram } from "react-icons/ti";
-import { FaLinkedinIn } from "react-icons/fa";
-import { FaThreads } from "react-icons/fa6";
-import { useNavigate } from 'react-router-dom';
+
+import Header from '../layout/Header'
+import Footer from '../layout/Footer'
 
 
-const Navbar = () => {
 
-    const navigate = useNavigate()
-
-    const [showDropdown1, setShowDropdown1] = useState(false);
-    const [showDropdown2, setShowDropdown2] = useState(false);
-    const [showDropdown3, setShowDropdown3] = useState(false);
-
-    const handleMouseEnter1 = () => {
-        setShowDropdown1(true);
-    };
-
-    const handleMouseLeave1 = () => {
-        setShowDropdown1(false);
-    };
-
-    const handleMouseEnter2 = () => {
-        setShowDropdown2(true);
-    };
-
-    const handleMouseLeave2 = () => {
-        setShowDropdown2(false);
-    };
-
-    const handleMouseEnter3 = () => {
-        setShowDropdown3(true);
-    };
-
-    const handleMouseLeave3 = () => {
-        setShowDropdown3(false);
-    };
-
-    return (
-
-        <>
-
-            <div  className='tw-py-1'>Company</div>
-
-            <NavDropdown title='Industries' onClick={()=>navigate('/other-route')} show={showDropdown1} onMouseEnter={handleMouseEnter1} onMouseLeave={handleMouseLeave1} className='tw-py-1 tw-cursor-pointer'>
-                <NavDropdown.Item>Aerospace and Defence</NavDropdown.Item>
-                <NavDropdown.Item>Aviation</NavDropdown.Item>
-                <NavDropdown.Item>Automotive</NavDropdown.Item>
-                <NavDropdown.Item>Banking & Finance</NavDropdown.Item>
-                <NavDropdown.Item>Capital Markets</NavDropdown.Item>
-                <NavDropdown.Item>Construction & Engineering</NavDropdown.Item>
-                <NavDropdown.Item>Chemical & Process</NavDropdown.Item>
-                <NavDropdown.Item>Consumer Goods</NavDropdown.Item>
-                <NavDropdown.Item>Energy & Utilities</NavDropdown.Item>
-                <NavDropdown.Item>FMCG</NavDropdown.Item>
-                <NavDropdown.Item>Food & Beverage</NavDropdown.Item>
-                <NavDropdown.Item>Healthcare</NavDropdown.Item>
-                <NavDropdown.Item>Industrial Manufacturing</NavDropdown.Item>
-                <NavDropdown.Item>Insurance</NavDropdown.Item>
-                <NavDropdown.Item>Life Sciences</NavDropdown.Item>
-                <NavDropdown.Item>Manufacturing Industries</NavDropdown.Item>
-                <NavDropdown.Item>Media & Entertainment</NavDropdown.Item>
-                <NavDropdown.Item>Mining & Natural Resources</NavDropdown.Item>
-                <NavDropdown.Item>Oil & Gas</NavDropdown.Item>
-                <NavDropdown.Item>Public Sector</NavDropdown.Item>
-                <NavDropdown.Item>Retail</NavDropdown.Item>
-                <NavDropdown.Item>Telecom</NavDropdown.Item>
-                <NavDropdown.Item>Travel</NavDropdown.Item>
-                <NavDropdown.Item>Transport, Logistics & Hospitality</NavDropdown.Item>
-            </NavDropdown>
-
-            <NavDropdown title='Our Brands' show={showDropdown2} onMouseEnter={handleMouseEnter2} onMouseLeave={handleMouseLeave2} className='tw-py-1'>
-                <NavDropdown.Item>Faucone Business</NavDropdown.Item>
-                <NavDropdown.Item>Faucone Digital</NavDropdown.Item>
-                <NavDropdown.Item>Faucone Technologies</NavDropdown.Item>
-                <NavDropdown.Item>Faucone Solutions</NavDropdown.Item>
-                <NavDropdown.Item>Faucone Finance</NavDropdown.Item>
-                <NavDropdown.Item>Faucone Consultancy</NavDropdown.Item>
-                <NavDropdown.Item>Faucone Studios</NavDropdown.Item>
-                <NavDropdown.Item>Faucone Advertising</NavDropdown.Item>
-                <NavDropdown.Item>Faucone Space</NavDropdown.Item>
-                <NavDropdown.Item>Faucone Design</NavDropdown.Item>
-                <NavDropdown.Item>Faucone Prints</NavDropdown.Item>
-                <NavDropdown.Item>Faucone Accounting</NavDropdown.Item>
-                <NavDropdown.Item>Faucone Legal</NavDropdown.Item>
-                <NavDropdown.Item>Faucone Supplies</NavDropdown.Item>
-                <NavDropdown.Item>Faucone Academy</NavDropdown.Item>
-                <NavDropdown.Item>Faucone Overseas</NavDropdown.Item>
-            </NavDropdown>
-
-            <NavDropdown title='Services' show={showDropdown3} onMouseEnter={handleMouseEnter3} onMouseLeave={handleMouseLeave3} className='tw-py-1'>
-                <NavDropdown.Item>Multi-Dimensional Branding & Marketing</NavDropdown.Item>
-                <NavDropdown.Item>360 degree Advertising Solutions</NavDropdown.Item>
-                <NavDropdown.Item>Brand Transformation</NavDropdown.Item>
-                <NavDropdown.Item>Scaling Technology for Development</NavDropdown.Item>
-                <NavDropdown.Item>Interlinking Business Concept</NavDropdown.Item>
-                <NavDropdown.Item>1:1 Business Coaching</NavDropdown.Item>
-                <NavDropdown.Item>Innovative Entrepreneurship Process</NavDropdown.Item>
-                <NavDropdown.Item>Implementing a Quality Business Process</NavDropdown.Item>
-                <NavDropdown.Item>Revenue lox</NavDropdown.Item>
-                <NavDropdown.Item>Career Planning and Development</NavDropdown.Item>
-                <NavDropdown.Item>Startup Investor Connect</NavDropdown.Item>
-                <NavDropdown.Item>Developing a Hybrid Work Model</NavDropdown.Item>
-            </NavDropdown>
-
-            <div className='tw-py-1'>Insights</div>
-            <div className='tw-py-1'>Contact us</div>
-
-            <div className='tw-bg-blue-200 tw-h-7 tw-w-7 tw-flex tw-items-center tw-justify-center tw-rounded-full tw-p-1 '><RiSearchLine className=' ' /></div>
-
-            <select name="" id="" className='tw-hidden xl:tw-block tw-outline-none tw-py-1 tw-my-1 tw-px-2'>
-                <option value="">English</option>
-                <option value="">Tamil</option>
-                <option value="">German</option>
-            </select>
-        </>
-
-    )
-}
 
 
 
@@ -152,51 +33,12 @@ const Navbar = () => {
 
 const Home = () => {
 
-    const [open, setOpen] = useState(false);
-    const showDrawer = () => {
-        setOpen(true);
-    };
-    const onClose = () => {
-        setOpen(false);
 
-    };
 
     return (
         <>
             {/*1st section - nav bar */}
-            <nav className='tw-bg-blue-50 tw-flex tw-items-center tw-justify-between tw-px-5 xl:tw-px-28 tw-py-6'>
-
-                {/* res nav bar */}
-                <button onClick={showDrawer} className='xl:tw-hidden'>
-                    <MdOutlineSegment className='tw-text-3xl' />
-                </button>
-
-                <Drawer title={false} onClose={onClose} open={open} placement='left' width={300}>
-                    <div className='tw-text-gray-600 '>
-                        <Navbar />
-                    </div>
-                </Drawer>
-
-
-
-
-                {/* name */}
-                <div>
-                    <p className='tw-font-abel tw-font-bold tw-text-2xl tw-tracking-[3px] tw-text-[#5db6f1]'>FAUCONE</p>
-                </div>
-
-
-                {/* navbar */}
-                <div className='tw-hidden xl:tw-flex tw-items-center tw-gap-x-12 tw-text-gray-600'>
-                    <Navbar />
-                </div>
-
-                {/*res languages  */}
-                <div className='xl:tw-hidden tw-bg-white tw-rounded-full tw-border-2 tw-w-8 tw-h-8 tw-flex tw-justify-center tw-items-center tw-border-[#5db6f1] tw-font-bold tw-text-sm '>
-                    En
-                </div>
-
-            </nav>
+            <Header />
 
             {/* 2nd section - powering brands */}
             <section className='tw-flex tw-justify-center tw-items-center tw-flex-col tw-mt-24'>
@@ -524,73 +366,8 @@ const Home = () => {
             </section>
 
             {/* 11th section - footer*/}
-            <section className='tw-bg-blue-50 '>
-                <div className='tw-flex lg:tw-justify-between lg:tw-px-52 tw-py-20'>
-                    <img src={india} alt="" className='tw-w-[20%] lg:tw-w-auto ' />
-                    <img src={india} alt="" className='tw-w-[20%] lg:tw-w-auto ' />
-                    <img src={india} alt="" className='tw-w-[20%] lg:tw-w-auto ' />
-                    <img src={india} alt="" className='tw-w-[20%] lg:tw-w-auto ' />
-                    <img src={india} alt="" className='tw-w-[20%] lg:tw-w-auto ' />
-                </div>
+            <Footer />
 
-                <main className='tw-bg-white tw-flex tw-justify-between tw-pt-12 lg:tw-pt-0 tw-relative tw-px-5 lg:tw-px-5 tw-text-sm lg:tw-text-base lg:tw-mt-8' >
-                    <div className='tw-text-gray-600 lg:tw-flex lg:tw-pl-20 lg:tw-gap-x-8 lg:tw-py-3 '>
-                        <p className='tw-py-3 lg:tw-py-0'>Company</p>
-                        <p className='tw-py-3 lg:tw-py-0'>Industries</p>
-                        <p className='tw-py-3 lg:tw-py-0'>Our Brands</p>
-                        <p className='tw-py-3 lg:tw-py-0'>Services</p>
-                        <p className='tw-py-3 lg:tw-py-0'>Career</p>
-                        <p className='tw-py-3 lg:tw-py-0'>Contact Us</p>
-                    </div>
-
-                    <img src={logo} alt="" className='tw-h-28 lg:tw-h-40 tw-rounded-full tw-absolute tw-top-[7%] lg:tw-top-[50%] tw-left-1/2 tw-transform -tw-translate-x-1/2 -tw-translate-y-1/2 ' />
-
-                    <div className='tw-text-right lg:tw-text-left tw-text-gray-600 lg:tw-flex lg:tw-pl-20 lg:tw-gap-x-4 lg:tw-py-3'>
-                        <p className='tw-py-4 lg:tw-py-0'>Community</p>
-                        <p className='tw-py-4 lg:tw-py-0'>Faucone for Startups</p>
-                        <p className='tw-py-4 lg:tw-py-0'>Partner with us</p>
-                        <p className='tw-py-4 lg:tw-py-0'>Customer Stories</p>
-                        <p className='tw-py-4 lg:tw-py-0'>Affiliate Program</p>
-                    </div>
-                </main>
-
-                <div className='tw-pt-16 tw-pb-10 lg:tw-mt-8 tw-px-10 tw-flex tw-items-center tw-justify-center tw-gap-x-6 lg:tw-gap-x-14' >
-                    <GrFacebookOption className='tw-text-slate-800 tw-border-2 tw-p-1 tw-border-slate-800 tw-rounded-full tw-text-3xl' />
-                    <TiSocialInstagram className='tw-text-slate-800 tw-border-2 tw-p-1 tw-border-slate-800 tw-rounded-full tw-text-3xl' />
-                    <FaLinkedinIn className='tw-text-slate-800 tw-border-2 tw-p-1 tw-border-slate-800 tw-rounded-full tw-text-3xl' />
-                    <BsTwitterX className='tw-text-slate-800 tw-border-2 tw-p-1 tw-border-slate-800 tw-rounded-full tw-text-3xl' />
-                    <FaThreads className='tw-text-slate-800 tw-border-2 tw-p-1 tw-border-slate-800 tw-rounded-full tw-text-3xl' />
-                    <TfiYoutube className='tw-text-slate-800 tw-border-2 tw-p-1 tw-border-slate-800 tw-rounded-full tw-text-3xl' />
-                </div>
-
-                <div className='lg:tw-flex tw-justify-center tw-gap-x-2'>
-                    <p className='tw-text-center tw-text-slate-500 tw-font-semibold'>sales@faucone.com<span className='tw-hidden lg:tw-inline-block'>,</span></p>
-                    <p className='tw-text-center tw-text-slate-500 tw-font-semibold tw-mt-5 lg:tw-mt-0'> support@faucone.com</p>
-                </div>
-                <p className='tw-text-center tw-text-slate-500 tw-font-semibold tw-mt-5'>1800 309 4377</p>
-                <p className='tw-text-center tw-text-slate-500 tw-font-semibold tw-mt-5 tw-pb-16'>www.faucone.com</p>
-            </section>
-
-            {/* 12th section - last line*/}
-            <section className='tw-bg-blue-200 lg:tw-flex lg:tw-items-center tw-justify-between tw-px-9'>
-                <main className='lg:tw-order-2 tw-flex tw-items-center tw-justify-around tw-text-gray-600 tw-font-semibold tw-text-sm lg:tw-gap-x-12'>
-                    <div className='tw-text-right lg:tw-text-left  tw-grid lg:tw-grid-flow-col tw-py-12 lg:tw-py-7 tw-gap-y-5 lg:tw-gap-y-0 lg:tw-gap-x-12 lg:tw-items-center'>
-                        <p>Security</p>
-                        <p>IPR Complaints</p>
-                        <p>Anti-spam Policy</p>
-                        <p>Terms of Service</p>
-                    </div>
-
-                    <div className='tw-grid lg:tw-grid-flow-col tw-py-12 lg:tw-py-7 tw-gap-y-5 lg:tw-gap-y-0 lg:tw-gap-x-12 lg:tw-items-center'>
-                        <p>Privacy Policy</p>
-                        <p>Cookie Policy</p>
-                        <p>Abuse Policy</p>
-                        <p>Disclaimer</p>
-                    </div>
-                </main>
-
-                <p className='tw-text-[#4168a3] tw-font-medium tw-text-center tw-py-10 lg:tw-py-0'>&copy; 2023 Faucone. All Rights Reserved.</p>
-            </section>
 
         </>
     )
