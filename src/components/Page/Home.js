@@ -42,7 +42,7 @@ const Home = () => {
 
             {/* 2nd section - powering brands */}
             <section className='tw-flex tw-justify-center tw-items-center tw-flex-col tw-mt-24'>
-                <p className='tw-tracking-[3px] tw-font-abel tw-text-gray-600 tw-text-2xl md:tw-text-4xl'>{t('brands.hero_title')} <span className='tw-text-[#5db6f1] tw-font-bold'>BRANDS</span></p>
+                <p className='tw-tracking-[3px] tw-font-abel tw-text-gray-600 tw-text-2xl md:tw-text-4xl'>{t('home.hero_title')} <span className='tw-text-[#5db6f1] tw-font-bold'>BRANDS</span></p>
                 <p className='tw-tracking-[3px] tw-font-abel tw-text-gray-600 tw-text-2xl md:tw-text-4xl'>CREATING <span className='tw-text-[#5db6f1] tw-font-bold'>ENTREPRENEURS</span></p>
                 <p className='tw-bg-[#5db6f1] tw-h-0.5 tw-w-10 tw-mt-6'></p>
                 <p className='tw-text-gray-500 tw-mt-6 tw-text-center px-4 tw-text-sm sm:tw-text-base tw-font-bold md:tw-hidden'>Faucone's mission is to create entrepreneurs, power brands, and build a meaningful future through advanced ideas.</p>
