@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 
 import award from '../../img/6award.PNG'
 import women from '../../img/women.PNG'
@@ -24,16 +24,79 @@ import { GrLinkNext } from "react-icons/gr";
 import Header from '../layout/Header'
 import Footer from '../layout/Footer'
 import { useTranslation } from "react-i18next";
+import {
+    Tab,
+    initTWE,
+} from "tw-elements";
+import Carousel from 'react-multi-carousel';
+import 'react-multi-carousel/lib/styles.css';
+import './carousal.css'
 
 
 
+const sliderImageUrl = [
+    //First image url
+    {
+        url:
+            "https://i2.wp.com/www.geeksaresexy.net/wp-content/uploads/2020/04/movie1.jpg?resize=600%2C892&ssl=1"
+    },
+    {
+        url:
+            "https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/best-kids-movies-2020-call-of-the-wild-1579042974.jpg?crop=0.9760858955588091xw:1xh;center,top&resize=480:*"
+    },
+    //Second image url
+    {
+        url:
+            "https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/best-movies-for-kids-2020-sonic-the-hedgehog-1571173983.jpg?crop=0.9871668311944719xw:1xh;center,top&resize=480:*"
+    },
+    //Third image url
+    {
+        url:
+            "https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQS82ET2bq9oTNwPOL8gqyoLoLfeqJJJWJmKQ&usqp=CAU"
+    },
 
+    //Fourth image url
 
-
+    {
+        url:
+            "https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcTdvuww0JDC7nFRxiFL6yFiAxRJgM-1tvJTxA&usqp=CAU"
+    }
+];
 
 const Home = () => {
 
     const { t } = useTranslation();
+    const tabClass = "tw-my-2 tw-block tw-border-x-0 tw-border-b-2 tw-border-t-0 tw-border-transparent tw-px-7 tw-pb-3.5 tw-pt-4 tw-text-xs tw-font-medium tw-uppercase tw-leading-tight tw-text-neutral-500 hover:tw-isolate hover:tw-border-transparent hover:tw-bg-neutral-100 focus:tw-isolate focus:tw-border-transparent"
+
+    const [selectedTab, setSelectedTap] = useState("vision")
+    const [isworking, setIswroking] = useState(false)
+    const [maindata, setMaindata] = useState([{ 'name': "one" },
+    { 'name': "two" }]);
+    const responsive = {
+        desktop: {
+            breakpoint: { max: 3000, min: 1024 },
+            items: 4,
+            slidesToSlide: 4 // optional, default to 1.
+        },
+        tablet: {
+            breakpoint: { max: 1024, min: 768 },
+            items: 3,
+            slidesToSlide: 3 // optional, default to 1.
+        },
+        mobile: {
+            breakpoint: { max: 767, min: 464 },
+            items: 2,
+            slidesToSlide: 1 // optional, default to 1.
+        }
+    };
+
+    useEffect(() => {
+        setTimeout(() => {
+            initTWE({ Tab });
+            setIswroking(true)
+        }, 1000)
+
+    }, [])
 
     return (
         <>
@@ -57,39 +120,154 @@ const Home = () => {
             {/* 3rd section - blue box */}
             <section className='tw-border-4 tw-border-[#5db6f1] tw-rounded-xl tw-w-[90%] lg:tw-w-[70%] tw-mx-auto lg:tw-mt-10'>
 
-                <header className='tw-flex tw-items-center tw-px-14 tw-justify-between tw-overflow-scroll'>
-                    <div className='tw-my-6'>
-                        <p><FaPeopleCarryBox className='tw-text-5xl' /></p>
-                        <p className='tw-text-gray-500 tw-text-lg'>Our <br /> <span className='tw-text-[#48a0db] tw-text-2xl tw-font-medium'>Vision</span></p>
-                        <p className='tw-bg-[#5db6f1]  tw-h-0.5 tw-w-10'></p>
-                    </div>
+                <header className='tw-flex tw-items-center tw-px-14 tw-justify-between tw-overflow-hidden'>
 
-                    <div className='tw-my-6'>
-                        <p><FaPeopleCarryBox className='tw-text-5xl' /></p>
-                        <p className='tw-text-gray-400 tw-text-lg'>Our <br /> <span className='tw-text-gray-600 tw-text-2xl tw-font-medium'>Mission</span></p>
-                    </div>
-
-                    <div className='tw-my-6'>
-                        <p><FaPeopleCarryBox className='tw-text-5xl' /></p>
-                        <p className='tw-text-gray-400 tw-text-lg'>Our <br /> <span className='tw-text-gray-600 tw-text-2xl tw-font-medium'>Values</span></p>
-                    </div>
-
-                    <div className='tw-my-6'>
-                        <p><FaPeopleCarryBox className='tw-text-5xl' /></p>
-                        <p className='tw-text-gray-400 tw-text-lg'>Our <br /> <span className='tw-text-gray-600 tw-text-2xl tw-font-medium'>Goal</span></p>
-                    </div>
-
-                    <div className='tw-my-6'>
-                        <p><FaPeopleCarryBox className='tw-text-5xl' /></p>
-                        <p className='tw-text-gray-400 tw-text-lg'>Our <br /> <span className='tw-text-gray-600 tw-text-2xl tw-font-medium'>Motto</span></p>
-                    </div>
-
+                    <ul
+                        class="tw-mb-5 tw-flex tw-list-none tw-flex-row tw-flex-wrap tw-border-b-0 tw-ps-0"
+                        role="tablist"
+                        data-twe-nav-ref>
+                        <li role="presentation" class="flex-grow basis-0 text-center">
+                            <a
+                                onClick={() => setSelectedTap("vision")}
+                                href="#tabs-home02"
+                                className={tabClass}
+                                data-twe-toggle="pill"
+                                data-twe-target="#tabs-home02"
+                                data-twe-nav-active
+                                role="tab"
+                                aria-controls="tabs-home02"
+                                aria-selected="true"
+                            >
+                                <div className='tw-my-6'>
+                                    <p><FaPeopleCarryBox className='tw-text-5xl' /></p>
+                                    <p className='tw-text-gray-500 tw-text-lg'>Our <br />
+                                        <span className={"tw-text-2xl tw-font-medium " + (selectedTab === 'vision' ? 'tw-text-[#48a0db]' : 'tw-text-gray-600')} >Vision</span></p>
+                                    {/* <p className='tw-bg-[#5db6f1]  tw-h-0.5 tw-w-10'></p> */}
+                                </div>
+                            </a
+                            >
+                        </li>
+                        <li role="presentation" class="flex-grow basis-0 text-center">
+                            <a
+                                onClick={() => setSelectedTap("mission")}
+                                href="#tabs-profile02"
+                                className={tabClass}
+                                data-twe-toggle="pill"
+                                data-twe-target="#tabs-profile02"
+                                role="tab"
+                                aria-controls="tabs-profile02"
+                                aria-selected="false"
+                            >
+                                <div className='tw-my-6'>
+                                    <p><FaPeopleCarryBox className='tw-text-5xl' /></p>
+                                    <p className='tw-text-gray-400 tw-text-lg'>Our <br />
+                                        <span className={"tw-text-2xl tw-font-medium " + (selectedTab === 'mission' ? 'tw-text-[#48a0db]' : 'tw-text-gray-600')}>Mission</span></p>
+                                </div>
+                            </a
+                            >
+                        </li>
+                        <li role="presentation" class="flex-grow basis-0 text-center">
+                            <a
+                                onClick={() => setSelectedTap("values")}
+                                href="#tabs-messages02"
+                                className={tabClass}
+                                data-twe-toggle="pill"
+                                data-twe-target="#tabs-messages02"
+                                role="tab"
+                                aria-controls="tabs-messages02"
+                                aria-selected="false"
+                            >
+                                <div className='tw-my-6'>
+                                    <p><FaPeopleCarryBox className='tw-text-5xl' /></p>
+                                    <p className='tw-text-gray-400 tw-text-lg'>Our <br />
+                                        <span className={"tw-text-2xl tw-font-medium " + (selectedTab === 'values' ? 'tw-text-[#48a0db]' : 'tw-text-gray-600')}>Values</span></p>
+                                </div>
+                            </a
+                            >
+                        </li>
+                        <li role="presentation" class="flex-grow basis-0 text-center">
+                            <a
+                                onClick={() => setSelectedTap("goal")}
+                                href="#tabs-contact02"
+                                className={tabClass}
+                                data-twe-toggle="pill"
+                                data-twe-target="#tabs-contact02"
+                                role="tab"
+                                aria-controls="tabs-contact02"
+                                aria-selected="false"
+                            >
+                                <div className='tw-my-6'>
+                                    <p><FaPeopleCarryBox className='tw-text-5xl' /></p>
+                                    <p className='tw-text-gray-400 tw-text-lg'>Our <br />
+                                        <span className={"tw-text-2xl tw-font-medium " + (selectedTab === 'goal' ? 'tw-text-[#48a0db]' : 'tw-text-gray-600')}>Goal</span></p>
+                                </div>
+                            </a
+                            >
+                        </li>
+                        <li role="presentation" class="flex-grow basis-0 text-center">
+                            <a
+                                onClick={() => setSelectedTap("motto")}
+                                href="#tabs-test02"
+                                className={tabClass}
+                                data-twe-toggle="pill"
+                                data-twe-target="#tabs-test02"
+                                role="tab"
+                                aria-controls="tabs-test02"
+                                aria-selected="false"
+                            >
+                                <div className='tw-my-6'>
+                                    <p><FaPeopleCarryBox className='tw-text-5xl' /></p>
+                                    <p className='tw-text-gray-400 tw-text-lg'>Our <br />
+                                        <span className={"tw-text-2xl tw-font-medium " + (selectedTab === 'motto' ? 'tw-text-[#48a0db]' : 'tw-text-gray-600')}>Motto</span></p>
+                                </div>
+                            </a
+                            >
+                        </li>
+                    </ul>
                 </header>
 
-                <div>
-                    <p className=' lg:tw-w-2/5 tw-px-8 lg:tw-px-14 tw-py-5  tw-text-gray-500 tw-text-sm tw-font-bold '>Our vision is to create brands, business solution and training for entrepreneurs and businesses, so that they can expand their business to a higher level in the ever- changing business environment</p>
 
+                {/* <p className=' lg:tw-w-2/5 tw-px-8 lg:tw-px-14 tw-py-5  tw-text-gray-500 tw-text-sm tw-font-bold '>Our vision is to create brands, business solution and training for entrepreneurs and businesses, so that they can expand their business to a higher level in the ever- changing business environment</p> */}
+                <div class="tw-mb-6">
+                    <div
+                        class="tw-hidden tw-opacity-100 tw-transition-opacity tw-duration-150 tw-ease-linear data-[twe-tab-active]:tw-block"
+                        id="tabs-home02"
+                        role="tabpanel"
+                        aria-labelledby="tabs-home-tab02"
+                        data-twe-tab-active>
+                        <p className=' lg:tw-w-2/5 tw-px-8 lg:tw-px-14 tw-py-5  tw-text-gray-500 tw-text-sm tw-font-bold '>Our vision is to create brands, business solution and training for entrepreneurs and businesses, so that they can expand their business to a higher level in the ever- changing business environment</p>
+                    </div>
+                    <div
+                        class="tw-hidden tw-opacity-100 tw-transition-opacity tw-duration-150 tw-ease-linear data-[twe-tab-active]:tw-block"
+                        id="tabs-profile02"
+                        role="tabpanel"
+                        aria-labelledby="tabs-profile-tab02">
+                        <p className=' lg:tw-w-2/5 tw-px-8 lg:tw-px-14 tw-py-5  tw-text-gray-500 tw-text-sm tw-font-bold '>Our vision is to create brands, business solution and training for entrepreneurs and businesses, so that they can expand their business to a higher level in the ever- changing business environment</p>
+                    </div>
+                    <div
+                        class="tw-hidden tw-opacity-100 tw-transition-opacity tw-duration-150 tw-ease-linear data-[twe-tab-active]:tw-block"
+                        id="tabs-messages02"
+                        role="tabpanel"
+                        aria-labelledby="tabs-profile-tab02">
+                        Tab 3 content
+                    </div>
+                    <div
+                        class="tw-hidden tw-opacity-100 tw-transition-opacity tw-duration-150 tw-ease-linear data-[twe-tab-active]:tw-block"
+                        id="tabs-contact02"
+                        role="tabpanel"
+                        aria-labelledby="tabs-contact-tab02">
+                        Tab 4 content
+                    </div>
+                    <div
+                        class="tw-hidden tw-opacity-100 tw-transition-opacity tw-duration-150 tw-ease-linear data-[twe-tab-active]:tw-block"
+                        id="tabs-test02"
+                        role="tabpanel"
+                        aria-labelledby="tabs-contact-tab02">
+                        Tab 4 content
+                    </div>
                 </div>
+
+
             </section>
 
             {/* 4th section - faucone formula */}
@@ -217,9 +395,37 @@ const Home = () => {
             <section className=' tw-flex tw-items-center tw-justify-center'>
                 <img src={location} alt="" />
             </section>
-
             {/* 8th section - press release */}
-            <section className='tw-mb-10 tw-mt-10 tw-flex tw-items-center tw-justify-center tw-flex-col tw-bg-gradient-to-b tw-from-sky-400 tw-to-teal-600' >
+            <section className=' tw-bg-gradient-to-b tw-from-sky-400 tw-to-teal-600'>
+                <p className='tw-font-abel tw-text-white tw-text-center tw-tracking-[3px] tw-text-2xl md:tw-text-4xl tw-mt-14 tw-font-thin'>PRESS <span className='tw-text-white tw-font-semibold'>RELEASES</span></p>
+                <p className='tw-bg-white tw-h-0.5 tw-w-10 tw-mt-4 tw-mx-auto'></p>
+                <Carousel
+                    responsive={responsive}
+                    autoPlay={true}
+                    swipeable={true}
+                    draggable={true}
+                    showDots={false}
+                    infinite={true}
+                    partialVisible={false}
+                    dotListClass="custom-dot-list-style"
+                >
+                    {sliderImageUrl.map((imageUrl, index) => {
+                        return (
+                            <div className="slider" key={index}>
+                                <div className='tw-mb-20 tw-border-4 tw-border-[#5db6f1] tw-p-5 tw-bg-white tw-rounded-xl tw-shadow-md'>
+                                    <img src={car} alt="" className='tw-h-52 tw-w-72 tw-border-4 tw-border-[#5db6f1] tw-rounded-xl ' />
+                                    <p className='tw-font-bold tw-line-clamp-2 tw-mt-3 tw-text-gray-700'>Lorem ipsum dolor sit amet consectetur adipisicing elit Numquam, qui.</p>
+                                    <p className='tw-mt-2 tw-text-gray-400 tw-flex tw-items-center tw-gap-x-2 tw-text-sm'><FaRegClock className='tw-text-base' /> February 27, 2024</p>
+                                    <p className='tw-mt-2 tw-text-gray-700 tw-text-sm tw-line-clamp-5'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Corporis deserunt atque voluptas nobis assumenda pariatur omnis nisi blanditiis eius tempora laboriosam molestiae asperiores sit, corrupti ipsum eum adipisci similique? Perferendis!</p>
+                                </div>
+
+                            </div>
+                        );
+                    })}
+                </Carousel>
+            </section>
+            {/* 8th section - press release */}
+            {/* <section className='tw-mb-10 tw-mt-10 tw-flex tw-items-center tw-justify-center tw-flex-col tw-bg-gradient-to-b tw-from-sky-400 tw-to-teal-600' >
                 <p className='tw-font-abel tw-text-white tw-text-center tw-tracking-[3px] tw-text-2xl md:tw-text-4xl tw-mt-14 tw-font-thin'>PRESS <span className='tw-text-white tw-font-semibold'>RELEASES</span></p>
                 <p className='tw-bg-white tw-h-0.5 tw-w-10 tw-mt-4 tw-mx-auto'></p>
 
@@ -254,7 +460,7 @@ const Home = () => {
 
 
                 </main>
-            </section>
+            </section> */}
 
             {/* 9th section - popular events */}
             <section className=' tw-mb-20'>
