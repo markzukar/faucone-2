@@ -4,7 +4,7 @@ import { Drawer } from 'antd';
 import { RiSearchLine } from "react-icons/ri";
 import { MdOutlineSegment } from "react-icons/md";
 import { Link, useNavigate } from 'react-router-dom';
-import ReactFlagsSelect, { Us } from "react-flags-select";
+import ReactFlagsSelect from "react-flags-select";
 import { useTranslation } from "react-i18next";
 
 
@@ -40,11 +40,11 @@ const Navbar = () => {
         setShowDropdown3(false);
     };
 
-    const { t, i18n, ready } = useTranslation();
+    const { i18n } = useTranslation();
     const [selected, setSelected] = useState("US");
     useEffect(() => {
         i18n.changeLanguage(selected.toLowerCase());
-    }, [selected])
+    }, [selected, i18n])
 
     return (
 
