@@ -4,7 +4,6 @@ import brand from '../../img/brand.png'
 import enpowerment from '../../img/enpowerment.PNG'
 import brandAward from '../../img/brandAward.PNG'
 import resBrandAward from '../../img/resBrandAward.PNG'
-import faucone from '../../img/faucone.PNG'
 import Footer from '../layout/Footer'
 
 const Industries = () => {
