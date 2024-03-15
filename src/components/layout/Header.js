@@ -1,11 +1,11 @@
-import React, { useEffect, useState } from 'react'
+import React, { useState } from 'react'
 import NavDropdown from 'react-bootstrap/NavDropdown';
 import { Drawer } from 'antd';
 import { RiSearchLine } from "react-icons/ri";
 import { MdOutlineSegment } from "react-icons/md";
 import { Link, useNavigate } from 'react-router-dom';
-import ReactFlagsSelect from "react-flags-select";
-import { useTranslation } from "react-i18next";
+import Language from './Language';
+
 
 
 const Navbar = () => {
@@ -40,16 +40,10 @@ const Navbar = () => {
         setShowDropdown3(false);
     };
 
-    const { i18n } = useTranslation();
-    const [selected, setSelected] = useState("US");
-    useEffect(() => {
-        i18n.changeLanguage(selected.toLowerCase());
-    }, [selected, i18n])
 
     return (
 
         <>
-
             <div className='tw-py-1'>Company</div>
 
             <NavDropdown title='Industries' show={showDropdown1} onMouseEnter={handleMouseEnter1} onMouseLeave={handleMouseLeave1} className='tw-py-1 tw-cursor-pointer'>
@@ -118,30 +112,10 @@ const Navbar = () => {
 
             <div className='tw-bg-blue-200 tw-h-7 tw-w-7 tw-flex tw-items-center tw-justify-center tw-rounded-full tw-p-1 '><RiSearchLine className=' ' /></div>
 
-            {/* <select name="" id="" className='tw-hidden xl:tw-block tw-outline-none tw-py-1 tw-my-1 tw-px-2'>
-                <option value="">English</option>
-                <option value="">Tamil</option>
-                <option value="">German</option>
-            </select> */}
-            <ReactFlagsSelect
-                selected={selected}
-                onSelect={data => setSelected(data)}
-                countries={["US", "FR", "DE", "ES", "MY", "NL", "ID", "TH", "CN", "JP"]}
-                customLabels={
-                    {
-                        US: "English",
-                        FR: "French",
-                        DE: "German",
-                        ES: "Spanish",
-                        MY: "Malay",
-                        NL: "Dutch",
-                        ID: "Indonesian",
-                        TH: "Thai",
-                        CN: "Chinese",
-                        JP: "Japanese"
-                    }}
-                placeholder="Select Language"
-            />
+
+            <div className='tw-hidden xl:tw-block tw-outline-none tw-py-1 tw-my-1 tw-px-2'>
+                <Language />
+            </div>
         </>
 
     )
@@ -185,9 +159,15 @@ const Header = () => {
             </div>
 
             {/*res languages  */}
-            <div className='xl:tw-hidden tw-bg-white tw-rounded-full tw-border-2 tw-w-8 tw-h-8 tw-flex tw-justify-center tw-items-center tw-border-[#5db6f1] tw-font-bold tw-text-sm '>
+            {/* <div className='xl:tw-hidden tw-bg-white tw-rounded-full tw-border-2 tw-w-8 tw-h-8 tw-flex tw-justify-center tw-items-center tw-border-[#5db6f1] tw-font-bold tw-text-sm '>
                 En
+            
+            </div> */}
+            <div className='xl:tw-hidden '>
+                <Language />
             </div>
+
+
 
         </nav>
     )

@@ -7,3 +7,15 @@ body{
 p {
   margin-bottom: 0 !important;
 }
+
+
+/* language  */
+.ReactFlagsSelect-module_label__27pw9{
+  display: none;
+}
+
+@media screen and (min-width: 1000px)  {
+  .ReactFlagsSelect-module_label__27pw9{
+    display: block;
+  } 
+}
