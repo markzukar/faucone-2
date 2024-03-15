@@ -1,9 +1,12 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import NavDropdown from 'react-bootstrap/NavDropdown';
 import { Drawer } from 'antd';
 import { RiSearchLine } from "react-icons/ri";
 import { MdOutlineSegment } from "react-icons/md";
 import { Link, useNavigate } from 'react-router-dom';
+import ReactFlagsSelect, { Us } from "react-flags-select";
+import { useTranslation } from "react-i18next";
+
 
 const Navbar = () => {
 
@@ -36,6 +39,12 @@ const Navbar = () => {
     const handleMouseLeave3 = () => {
         setShowDropdown3(false);
     };
+
+    const { t, i18n, ready } = useTranslation();
+    const [selected, setSelected] = useState("US");
+    useEffect(() => {
+        i18n.changeLanguage(selected.toLowerCase());
+    }, [selected])
 
     return (
 
@@ -109,11 +118,30 @@ const Navbar = () => {
 
             <div className='tw-bg-blue-200 tw-h-7 tw-w-7 tw-flex tw-items-center tw-justify-center tw-rounded-full tw-p-1 '><RiSearchLine className=' ' /></div>
 
-            <select name="" id="" className='tw-hidden xl:tw-block tw-outline-none tw-py-1 tw-my-1 tw-px-2'>
+            {/* <select name="" id="" className='tw-hidden xl:tw-block tw-outline-none tw-py-1 tw-my-1 tw-px-2'>
                 <option value="">English</option>
                 <option value="">Tamil</option>
                 <option value="">German</option>
-            </select>
+            </select> */}
+            <ReactFlagsSelect
+                selected={selected}
+                onSelect={data => setSelected(data)}
+                countries={["US", "FR", "DE", "ES", "MY", "NL", "ID", "TH", "CN", "JP"]}
+                customLabels={
+                    {
+                        US: "English",
+                        FR: "French",
+                        DE: "German",
+                        ES: "Spanish",
+                        MY: "Malay",
+                        NL: "Dutch",
+                        ID: "Indonesian",
+                        TH: "Thai",
+                        CN: "Chinese",
+                        JP: "Japanese"
+                    }}
+                placeholder="Select Language"
+            />
         </>
 
     )
@@ -129,6 +157,8 @@ const Header = () => {
         setOpen(false);
 
     };
+
+
     return (
         <nav className='tw-bg-blue-50 tw-flex tw-items-center tw-justify-between tw-px-5 xl:tw-px-28 tw-py-6'>
 
