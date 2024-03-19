@@ -107,8 +107,8 @@ const Navbar = () => {
                 <NavDropdown.Item>Developing a Hybrid Work Model</NavDropdown.Item>
             </NavDropdown>
 
-            <div className='tw-py-1'>Insights</div>
-            <div className='tw-py-1'>Contact us</div>
+            <Link to={'/insights'} className='tw-py-1 tw-no-underline tw-text-gray-600 tw-block'>Insights</Link>
+            <Link to={'/contact-us'} className='tw-py-1 tw-no-underline tw-text-gray-600 tw-block' >Contact us</Link>
 
             <div className='tw-bg-blue-200 tw-h-7 tw-w-7 tw-flex tw-items-center tw-justify-center tw-rounded-full tw-p-1 '><RiSearchLine className=' ' /></div>
 

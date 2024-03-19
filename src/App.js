@@ -5,6 +5,8 @@ import Home from './components/Page/Home';
 import OurBrands from './components/Page/OurBrands';
 import Industries from './components/Page/Industries';
 import Services from './components/Page/Services';
+import Insight from './components/Page/Insight';
+import ContactUs from './components/Page/ContactUs';
 
 function App() {
   return (
@@ -15,6 +17,8 @@ function App() {
           <Route path='/ourbrands' element={<OurBrands />} />
           <Route path='/industries' element={<Industries />} />
           <Route path='/services' element={<Services />} />
+          <Route path='/insights' element={<Insight />} />
+          <Route path='//contact-us' element={<ContactUs />} />
         </Routes>
       </div>
     </BrowserRouter>
