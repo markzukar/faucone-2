@@ -74,18 +74,23 @@ const Home = () => {
 
     const responsive = {
         desktop: {
-            breakpoint: { max: 3000, min: 1024 },
+            breakpoint: { max: 3000, min: 1021 },
             items: 4,
             slidesToSlide: 4 // optional, default to 1.
         },
-        tablet: {
-            breakpoint: { max: 1024, min: 768 },
+        laptop: {
+            breakpoint: { max: 1020, min: 751 },
             items: 3,
+            slidesToSlide: 4 // optional, default to 1.
+        },
+        tablet: {
+            breakpoint: { max: 750, min: 451 },
+            items: 2,
             slidesToSlide: 3 // optional, default to 1.
         },
         mobile: {
-            breakpoint: { max: 767, min: 464 },
-            items: 2,
+            breakpoint: { max: 450, min: 320 },
+            items: 1,
             slidesToSlide: 1 // optional, default to 1.
         }
     };
@@ -139,7 +144,7 @@ const Home = () => {
                             <div className='tw-my-6'>
                                 <p><FaPeopleCarryBox className='tw-text-5xl' /></p>
                                 <p className='tw-text-gray-500 tw-text-lg'>Our <br />
-                                    <span className={"tw-text-2xl tw-font-medium " + (selectedTab === 'vision' ? 'tw-text-[#48a0db] after:tw-w-full after:tw-h-0 con after:tw-absolute tw-bg-blue-500 ' : 'tw-text-gray-600')} >Vision</span></p>
+                                    <span className={"tw-text-2xl tw-font-medium " + (selectedTab === 'vision' ? 'tw-text-[#48a0db] after:tw-w-14  after:tw-block after:tw-h-1 after:tw-rounded-md con after:tw-absolute after:tw-bg-blue-500 ' : 'tw-text-gray-600')} >Vision</span></p>
                             </div>
                         </a>
                     </li>
@@ -158,7 +163,7 @@ const Home = () => {
                             <div className='tw-my-6'>
                                 <p><FaPeopleCarryBox className='tw-text-5xl' /></p>
                                 <p className='tw-text-gray-400 tw-text-lg'>Our <br />
-                                    <span className={"tw-text-2xl tw-font-medium " + (selectedTab === 'mission' ? 'tw-text-[#48a0db]' : 'tw-text-gray-600')}>Mission</span></p>
+                                    <span className={"tw-text-2xl tw-font-medium " + (selectedTab === 'mission' ? 'tw-text-[#48a0db] after:tw-w-14  after:tw-block after:tw-h-1 after:tw-rounded-md con after:tw-absolute after:tw-bg-blue-500' : 'tw-text-gray-600')}>Mission</span></p>
                             </div>
                         </a>
                     </li>
@@ -176,7 +181,7 @@ const Home = () => {
                             <div className='tw-my-6'>
                                 <p><FaPeopleCarryBox className='tw-text-5xl' /></p>
                                 <p className='tw-text-gray-400 tw-text-lg'>Our <br />
-                                    <span className={"tw-text-2xl tw-font-medium " + (selectedTab === 'values' ? 'tw-text-[#48a0db]' : 'tw-text-gray-600')}>Values</span></p>
+                                    <span className={"tw-text-2xl tw-font-medium " + (selectedTab === 'values' ? 'tw-text-[#48a0db] after:tw-w-14  after:tw-block after:tw-h-1 after:tw-rounded-md con after:tw-absolute after:tw-bg-blue-500' : 'tw-text-gray-600')}>Values</span></p>
                             </div>
                         </a>
                     </li>
@@ -194,7 +199,7 @@ const Home = () => {
                             <div className='tw-my-6'>
                                 <p><FaPeopleCarryBox className='tw-text-5xl' /></p>
                                 <p className='tw-text-gray-400 tw-text-lg'>Our <br />
-                                    <span className={"tw-text-2xl tw-font-medium " + (selectedTab === 'goal' ? 'tw-text-[#48a0db]' : 'tw-text-gray-600')}>Goal</span></p>
+                                    <span className={"tw-text-2xl tw-font-medium " + (selectedTab === 'goal' ? 'tw-text-[#48a0db] after:tw-w-14  after:tw-block after:tw-h-1 after:tw-rounded-md con after:tw-absolute after:tw-bg-blue-500' : 'tw-text-gray-600')}>Goal</span></p>
                             </div>
                         </a>
                     </li>
@@ -212,7 +217,7 @@ const Home = () => {
                             <div className='tw-my-6'>
                                 <p><FaPeopleCarryBox className='tw-text-5xl' /></p>
                                 <p className='tw-text-gray-400 tw-text-lg'>Our <br />
-                                    <span className={"tw-text-2xl tw-font-medium " + (selectedTab === 'motto' ? 'tw-text-[#48a0db]' : 'tw-text-gray-600')}>Motto</span></p>
+                                    <span className={"tw-text-2xl tw-font-medium " + (selectedTab === 'motto' ? 'tw-text-[#48a0db] after:tw-w-14  after:tw-block after:tw-h-1 after:tw-rounded-md con after:tw-absolute after:tw-bg-blue-500' : 'tw-text-gray-600')}>Motto</span></p>
                             </div>
                         </a>
                     </li>
